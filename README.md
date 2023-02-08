@@ -45,7 +45,7 @@ sudo pip3 install "evdev == 1.5.0"
 #pigpiod #only if “sudo systemctl enable pigpiod” doesn’t work
 cd ~pi/
 
-sudo python3 joystick.py &
+sudo python3 joystickclass.py &
 
 cd -
 
