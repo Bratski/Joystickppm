@@ -56,14 +56,16 @@ class JoyStick: # class to create an object for each joystick
         if any(item[1] == 298 for item in value_buttons_tuple):
             button_list[10] = 2000
         return button_list # return a list of the status of each momentary button: 1000 uS for not being pressed, 2000 uS for being pressed
+
     
-NUMBER_OF_CHANNELS = 10
+    
+NUMBER_OF_CHANNELS = 10 # by testing found out, just 9 channels are actually being read, channel 0 is not recognized by the Radiomaster or Jumper radio
 GPIO_PIN = 18 # pin number output for the PPM signal on the GPIO Raspberry Pi
 pi = pigpio.pi()
 if not pi.connected:
     exit(0)
 pi.wave_tx_stop() # Start with a clean slate.
-ppm = PPM.X(pi, GPIO_PIN, NUMBER_OF_CHANNELS, frame_ms=20) # initiating the PPM wave signal ?
+ppm = PPM.X(pi, GPIO_PIN, NUMBER_OF_CHANNELS, frame_ms=20) # initiating the PPM wave signal 
 
 devices_list = [InputDevice(path) for path in list_devices()]
 
