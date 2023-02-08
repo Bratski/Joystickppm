@@ -97,6 +97,6 @@ while True: # event loop for more than one device
                 if len(devices_list) > 1:            
                     output_list = [1500, js1.get_axis()[0], js1.get_axis()[1], js2.get_axis()[0], js2.get_axis()[1],js1.get_buttons()[0], js1.get_buttons()[1], js2.get_buttons()[0], js2.get_buttons()[1]] # the PPM module input must be a list, representing one channel for each item, for some reason the first item (channel 0) is not recognized by the Radiomaster and Jumper Radios.
                 
-                #print(output_list)
+                #print(output_list) # for debugging
                 
                 ppm.update_channels(output_list) # here is the output put into the PPM signal generator
